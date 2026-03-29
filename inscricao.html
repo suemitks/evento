@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <img src="" alt="logo">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <span class="material-symbols-outlined">home</span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="programacao.html">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Programação</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="inscricao.html">
+                        <span class="material-symbols-outlined">confirmation_number</span>
+                        <span>Inscrição</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="participante.html">
+                        <span class="material-symbols-outlined">person</span>
+                        <span>Área do Participante</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-inscricao">
+
+        <h1>Inscrição no Evento</h1>
+        <p>Preencha os dados abaixo para garantir sua participação no EventoTech.</p>
+
+        <!-- MOSTRAR ATIVIDADE SELECIONADA -->
+        <p id="atividadeSelecionada" class="atividade-info hidden"></p>
+
+        <form id="formInscricao">
+
+            <!-- DADOS PESSOAIS -->
+            <h2>Dados Pessoais</h2>
+
+            <label>Nome completo</label>
+            <input type="text" id="nome" required>
+
+            <label>Email</label>
+            <input type="email" id="email" required>
+
+            <label>Telefone</label>
+            <input type="tel" id="telefone" required>
+
+            <!-- ATIVIDADES -->
+            <h2>Escolha as atividades</h2>
+
+            <label>
+                <input type="checkbox" name="atividade" value="ia"> Inteligência Artificial e o Futuro da Computação
+            </label>
+
+            <label>
+                <input type="checkbox" name="atividade" value="web"> Desenvolvimento Web Moderno com React
+            </label>
+
+            <label>
+                <input type="checkbox" name="atividade" value="seguranca"> Segurança Cibernética na Era Digital
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="cloud"> Cloud Computing e Infraestrutura Escalável
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="dados"> Data Science e Big Data Analytics
+            </label>
+            <label>
+                <input type="checkbox" name="atividade" value="devops"> DevOps e Metodologias Ágeis
+            </label>
+
+
+            <!-- ACESSIBILIDADE -->
+            <h2>Acessibilidade</h2>
+
+            <label>
+                <input type="checkbox" id="libras"> Preciso de intérprete de Libras
+            </label>
+
+            <label>
+                <input type="checkbox" id="legenda"> Preciso de legendas
+            </label>
+
+            <!-- LGPD -->
+            <h2>Termos</h2>
+
+            <label>
+                <input type="checkbox" id="termos" required>
+                Aceito os termos de uso e política de privacidade
+            </label>
+
+            <!-- BOTÃO -->
+            <button type="submit">Confirmar Inscrição</button>
+
+            <!-- MENSAGEM -->
+            <p id="msgInscricao"></p>
+
+        </form>
+
+        <!-- BOTÃO LIBRAS -->
+        <button id="btnLibras">Ver instruções em Libras</button>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+
+            <div class="contato">
+                <h3>Contato</h3>
+                <p>Endereço: Rua Euclides Miragaia</p>
+                <p>Telefone: (12) 92211-9768</p>
+            </div>
+
+            <div class="footer-menu">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="programacao.html">Programação</a></li>
+                    <li><a href="inscricao.html">Inscrição</a></li>
+                    <li><a href="login.html">Área do Participante</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-politica">
+                <h3>Informações</h3>
+                <a href="#">Políticas e Privacidade</a>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="footer-copy">
+            © 2026 EventoTech - Todos os direitos reservados | Desenvolvido com acessibilidade e inclusão
+        </p>
+    </footer>
+</body>
+
+<script src="js/script.js"></script>
+
+</html>
