@@ -11,6 +11,7 @@ body {
     color: #333;
 }
 
+/* cabeçalho */
 header {
     display: flex;
     justify-content: space-between;
@@ -19,17 +20,25 @@ header {
     padding: 15px 30px;
 }
 
-header img {
+/* menu global de navegação */
+.navbar img {
     width: 120px;
 }
 
-nav ul {
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar ul {
     display: flex;
     list-style: none;
     gap: 20px;
 }
 
-nav a {
+.navbar a {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -37,14 +46,27 @@ nav a {
     color: #1F2937;
 }
 
-nav span {
+.navbar span {
     font-size: 16px;
 }
 
-nav a:hover {
+.navbar a:hover {
     color: #00bfff;
 }
 
+/* menu mobile */
+.hamburger {
+    display: none;
+    /* ESCONDE NO DESKTOP */
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+}
+
+/* banner padrão das páginas */
 .banner {
     text-align: center;
     padding: 80px 24px;
@@ -60,7 +82,6 @@ nav a:hover {
 
 .banner p {
     font-size: 18px;
-    margin-bottom: 40px;
     color: #fff;
 }
 
@@ -73,6 +94,7 @@ nav a:hover {
     border-radius: 8px;
     font-weight: bold;
     margin-right: 10px;
+    margin-top: 40px;
     font-size: 18px;
 }
 
@@ -90,6 +112,8 @@ nav a:hover {
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
+    margin-top: 40px;
+
 }
 
 #botao-libras:hover {
@@ -97,6 +121,7 @@ nav a:hover {
     color: #1E40AF;
 }
 
+/* página home */
 .sobre-evento {
     padding: 80px 24px;
     max-width: 900px;
@@ -154,6 +179,7 @@ nav a:hover {
     color: #6B7280;
 }
 
+/* rodapé */
 footer {
     background-color: #1f2937;
     color: white;
@@ -165,6 +191,10 @@ footer {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.footer-copy {
+    font-size: 12px;
 }
 
 .contato h3 {
@@ -224,8 +254,40 @@ footer hr {
 }
 
 /* tela login */
+.banner-login {
+    text-align: center;
+    padding: 80px 24px;
+    background: #1E40AF;
+    color: #fff;
+}
+
+.banner-login h1 {
+    margin-bottom: 24px;
+    font-size: 56px;
+    color: #fff;
+}
+
+.banner-login p {
+    font-size: 18px;
+    color: #fff;
+}
+
+#formLogin p {
+    margin-top: 5px;
+}
+
+#formLogin input[type="email"],
+#formLogin input[type="password"],
+#formLogin input[type="tipo"],
+#formLogin select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 12px;
+}
+
 .login-container {
-    height: 100vh;
+    padding: 64px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -234,27 +296,35 @@ footer hr {
 
 .login-box {
     background: white;
-    padding: 30px;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 48px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
 }
 
 .login-box h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 28px;
+    color: #111827;
 }
 
 .login-box label {
     display: block;
-    margin-top: 10px;
+    margin-top: 5px;
+    font-size: 16px;
 }
 
-.login-box input,
-.login-box select {
-    width: 100%;
-    padding: 8px;
+.login-box a {
+    display: flex;
+    text-decoration: none;
+    justify-content: right;
     margin-top: 5px;
+    color: #007bff;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
 }
 
 .login-box button {
@@ -278,6 +348,17 @@ footer hr {
     text-align: center;
 }
 
+/* form cadastro */
+#formCadastro input[type="text"],
+#formCadastro input[type="email"],
+#formCadastro input[type="password"],
+#formCadastro select {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 12px;
+}
+
 /* mensagem cadastro sucesso */
 #msgCadastro {
     color: #28a745;
@@ -292,12 +373,11 @@ footer hr {
 }
 
 /* página programação */
-/* Container geral */
 .programacao {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 80px 24px;
 }
 
 .card-programacao {
@@ -327,13 +407,13 @@ footer hr {
 }
 
 .card-programacao button {
-    margin-top: 10px;
     padding: 8px;
     border: none;
     background-color: #6c757d;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .card-programacao button:hover {
@@ -345,9 +425,8 @@ footer hr {
     text-align: center;
     background-color: #28a745;
     color: white;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
-    margin-top: 10px;
     display: block;
 }
 
@@ -405,14 +484,35 @@ form label {
     font-weight: 500;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"] {
+#formInscricao input[type="text"],
+#formInscricao input[type="email"],
+#formInscricao input[type="tel"],
+#formInscricao select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+#nome {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+#telefone {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.atividade {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 12px;
 }
 
 form input[type="checkbox"] {
@@ -471,9 +571,28 @@ form button:hover {
 }
 
 @media (max-width: 768px) {
-    nav ul {
+    .hamburger {
+        display: flex;
+        /* ou block */
         flex-direction: column;
-        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+    }
+
+    .navbar ul {
+        display: none;
+        width: 100%;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #333;
+        /* Linha divisória */
+    }
+
+    .navbar ul.active {
+        display: block;
     }
 
     header {
@@ -487,9 +606,290 @@ form button:hover {
     }
 }
 
+/* MINHAS ATIVIDADES/ Participante*/
+
+.atividades-container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header */
+.participante span,
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+#nome-exibicao {
+    font-size: 32px;
+    margin: 0;
+}
+
+.participante span {
+    font-size: 60px;
+    color: #1E40AF;
+}
+
+.minhas-incricoes {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.minhas-incricoes span {
+    font-size: 35px;
+    border-radius: 8px;
+    background-color: #FEF3C7;
+    margin-right: 5px;
+    stroke: #B45309;
+}
+
+.minhas-incricoes h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.minhas-incricoes p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6B7280;
+}
+
+/* Lista de atividades */
+.lista-atividade {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Card individual */
+.atividade-card {
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: box-shadow 0.2s ease;
+}
+
+.atividade-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Lado esquerdo do card */
+.atividade-card.atividade-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.atividade-data {
+    display: flex;
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin-bottom: 4px;
+    justify-content: left;
+}
+
+.atividade-titulo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.atividade-nome {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin-bottom: 2px;
+}
+
+.atividade-palestrante span {
+    font-size: 12px;
+    stroke: #9CA3AF;
+    flex-shrink: 0;
+}
+
+/* Lado direito do card */
+.atividade-acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Concluído */
+.concluido {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background-color: #D1FAE5;
+    color: #065F46;
+    white-space: nowrap;
+}
+
+/* Botão baixar certificado */
+.btn-certificado {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid #BFDBFE;
+    border-radius: 8px;
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-certificado:hover {
+    background-color: #DBEAFE;
+    border-color: #93C5FD;
+}
+
+.btn-certificado span {
+    align-items: center;
+    font-size: 14px;
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+
+/* logout */
+.btn-logout {
+    background: none;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    color: #DC2626;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #FEE2E2;
+}
+
 @media (max-width: 600px) {
+    .banner-login {
+        padding: 40px 16px;
+    }
+
+    .banner-login h1 {
+        font-size: 36px;
+    }
+
+    .banner p {
+        margin-bottom: 20px;
+    }
+
+    #botao-libras {
+        margin: 0;
+    }
+
+    .hamburger {
+        display: flex;
+        /* ou block */
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+    }
+
+    .navbar ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        /* 🔥 importante */
+        top: 60px;
+        /* altura da navbar */
+        left: 0;
+        z-index: 999;
+        /* Linha divisória */
+    }
+
+    .navbar ul.active {
+        display: flex;
+        padding: 16px;
+    }
+
+    .banner {
+        padding: 40px 16px;
+    }
+
+    .banner h1 {
+        font-size: 36px;
+    }
+
+    .botao {
+        margin: 0 0 16px 0;
+    }
+
+    .sobre-evento {
+        padding: 40px 16px;
+    }
+
+    .sobre-evento h2 {
+        font-size: 32px;
+    }
+
+    .inclusao-acessibilidade {
+        padding: 40px 16px;
+    }
+
     .container-inscricao {
         margin: 20px;
         padding: 20px;
+    }
+
+    .programacao {
+        padding: 40px 16px;
+    }
+
+    .atividades-container {
+        padding: 1rem;
+    }
+
+    .atividade-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .atividade-acoes {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .atividade-titulo {
+        white-space: normal;
+    }
+
+    .atividade-info {
+        width: 100%;
     }
 }

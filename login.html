@@ -11,8 +11,15 @@
 
 <body>
     <header>
-        <img src="" alt="logo">
-        <nav>
+        <nav class="navbar">
+            <img src="img/logo.png" alt="Logotipo do EventoTech">
+
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <ul>
                 <li>
                     <a href="index.html">
@@ -33,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="participante.html">
+                    <a href="login.html">
                         <span class="material-symbols-outlined">person</span>
                         <span>Área do Participante</span>
                     </a>
@@ -41,33 +48,41 @@
             </ul>
         </nav>
     </header>
-    <main class="login-container">
+    <main>
+        <section class="banner">
+            <h1>Acesse sua Conta</h1>
+            <p>Entre para acessar suas inscrições e certificados</p>
+        </section>
 
-        <form id="formLogin" class="login-box">
+        <section class="login-container">
+            <form id="formLogin" class="login-box">
 
-            <h2>Login</h2>
+                <h2>Faça seu Login</h2>
 
-            <label>Email</label>
-            <input type="email" id="email" placeholder="Digite seu email" required>
+                <label>Email</label>
+                <input type="email" id="email" placeholder="exemplo@exemplo.com" required>
 
-            <label>Senha</label>
-            <input type="password" id="senha" placeholder="Digite sua senha" required>
+                <label>Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
 
-            <label>Tipo de acesso</label>
-            <select id="tipo">
-                <option value="participante">Participante</option>
-                <option value="admin">Administrador</option>
-            </select>
+                <label>Tipo de acesso</label>
+                <select id="tipo">
+                    <option value="participante">Participante</option>
+                    <option value="admin">Administrador</option>
+                </select>
 
-            <button type="submit">Entrar</button>
+                <a href="">Esqueceu sua senha?</a>
 
-            <p>
-                Não tem conta? <a href="cadastro.html">Criar conta</a>
-            </p>
+                <button type="submit">Entrar</button>
 
-            <p id="mensagemErro"></p>
+                <p>
+                    Não tem conta? <a href="cadastro.html">Criar conta</a>
+                </p>
 
-        </form>
+                <p id="mensagemErro"></p>
+
+            </form>
+        </section>
 
     </main>
 

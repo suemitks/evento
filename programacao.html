@@ -11,8 +11,15 @@
 
 <body>
     <header>
-        <img src="" alt="logo">
-        <nav>
+        <nav class="navbar">
+            <img src="img/logo.png" alt="Logotipo do EventoTech">
+
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <ul>
                 <li>
                     <a href="index.html">
@@ -33,9 +40,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="participante.html">
+                    <a href="login.html">
                         <span class="material-symbols-outlined">person</span>
                         <span>Área do Participante</span>
+                    </a>
+                </li>
+                <li id="logout-item" hidden>
+                    <a href="#" id="btn-logout">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span>Logout</span>
                     </a>
                 </li>
             </ul>
@@ -43,11 +56,15 @@
     </header>
 
     <main>
+        <section class="banner">
+            <h1>Programação do Evento</h1>
+            <p>Confira todas as atividades e palestras programadas para Abril de 2026</p>
+        </section>
         <section class="programacao">
             <div class="card-programacao">
                 <div class="info">
                     <span class="material-symbols-outlined">schedule</span>
-                    <time datetime="09:00-10:30">09:00 - 10:30</time>
+                    <time datetime="09:00-10:30">15/04/2026 09:00 - 10:30</time>
                 </div>
                 <h2>Inteligência Artificial e o Futuro da Computação</h2>
                 <div class="info">
@@ -55,14 +72,14 @@
                     <span>Dr. Carlos Silva</span>
                 </div>
                 <div class="info">
-                    <button>Ver dedatelhes</button>
+                    <button>Ver detatelhes</button>
                     <a href="inscricao.html?atividade=ia">Inscreva-se</a>
                 </div>
             </div>
             <div class="card-programacao">
                 <div class="info">
                     <span class="material-symbols-outlined">schedule</span>
-                    <time datetime="10:45-12:15">10:45 - 12:15</time>
+                    <time datetime="10:45-12:15">16/04/2026 10:45 - 12:15</time>
                 </div>
                 <h2>Desenvolvimento Web Moderno com React</h2>
                 <div class="info">
@@ -70,14 +87,14 @@
                     <span>Profa. Ana Santos</span>
                 </div>
                 <div class="info">
-                    <button>Ver dedatelhes</button>
+                    <button>Ver detatelhes</button>
                     <a href="inscricao.html?atividade=web">Inscreva-se</a>
                 </div>
             </div>
             <div class="card-programacao">
                 <div class="info">
                     <span class="material-symbols-outlined">schedule</span>
-                    <time datetime="14:00-15:30">14:00 - 15:30</time>
+                    <time datetime="14:00-15:30">17/04/2026 14:00 - 15:30</time>
                 </div>
                 <h2>Segurança Cibernética na Era Digital</h2>
                 <div class="info">
@@ -85,14 +102,14 @@
                     <span>Eng. Roberto Lima</span>
                 </div>
                 <div class="info">
-                    <button>Ver dedatelhes</button>
+                    <button>Ver detatelhes</button>
                     <a href="inscricao.html?atividade=seguranca">Inscreva-se</a>
                 </div>
             </div>
             <div class="card-programacao">
                 <div class="info">
                     <span class="material-symbols-outlined">schedule</span>
-                    <time datetime="15:45-17:15">15:45 - 17:15</time>
+                    <time datetime="15:45-17:15">20/04/2026 15:45 - 17:15</time>
                 </div>
                 <h2>Cloud Computing e Infraestrutura Escalável</h2>
                 <div class="info">
@@ -100,14 +117,14 @@
                     <span>Dra. Mariana Costa</span>
                 </div>
                 <div class="info">
-                    <button>Ver dedatelhes</button>
+                    <button>Ver detatelhes</button>
                     <a href="inscricao.html?atividade=cloud">Inscreva-se</a>
                 </div>
             </div>
             <div class="card-programacao">
                 <div class="info">
                     <span class="material-symbols-outlined">schedule</span>
-                    <time datetime="17:30-19:00">17:30 - 19:00</time>
+                    <time datetime="17:30-19:00">22/04/2026 17:30 - 19:00</time>
                 </div>
                 <h2>Data Science e Big Data Analytics</h2>
                 <div class="info">
@@ -115,14 +132,14 @@
                     <span>Dr. Paulo Mendes</span>
                 </div>
                 <div class="info">
-                    <button>Ver dedatelhes</button>
+                    <button>Ver detatelhes</button>
                     <a href="inscricao.html?atividade=dados">Inscreva-se</a>
                 </div>
             </div>
             <div class="card-programacao">
                 <div class="info">
                     <span class="material-symbols-outlined">schedule</span>
-                    <time datetime="19:15-20:45">19:15 - 20:45</time>
+                    <time datetime="19:15-20:45">23/04/2026 19:15 - 20:45</time>
                 </div>
                 <h2>DevOps e Metodologias Ágeis</h2>
                 <div class="info">
@@ -130,7 +147,7 @@
                     <span>Eng. Fernanda Alves</span>
                 </div>
                 <div class="info">
-                    <button>Ver dedatelhes</button>
+                    <button>Ver detatelhes</button>
                     <a href="inscricao.html?atividade=devops">Inscreva-se</a>
                 </div>
             </div>

@@ -1,114 +1,177 @@
-//login
-const formLogin = document.getElementById("formLogin");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (formLogin) {
-    formLogin.addEventListener("submit", function (e) {
-        e.preventDefault();
+    /* MENU HAMBURGUER */
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".navbar ul");
 
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("senha").value;
-        const erro = document.getElementById("mensagemErro");
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
 
-        const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
-
-        if (!usuarioSalvo) {
-            erro.textContent = "Usuário não encontrado!";
-            return;
-        }
-
-        if (email === usuarioSalvo.email && senha === usuarioSalvo.senha) {
-
-            localStorage.setItem("tipoUsuario", usuarioSalvo.tipo);
-
-            if (usuarioSalvo.tipo === "admin") {
-                window.location.href = "admin.html";
-            } else {
-                window.location.href = "participante.html";
-            }
-
-        } else {
-            erro.textContent = "Email ou senha inválidos!";
-        }
-    });
-}
-
-//cadastro
-const formCadastro = document.getElementById("formCadastro");
-
-if (formCadastro) {
-    formCadastro.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const nome = document.getElementById("nome").value;
-        const email = document.getElementById("emailCadastro").value;
-        const senha = document.getElementById("senhaCadastro").value;
-        const tipo = document.getElementById("tipoCadastro").value;
-
-        const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
-
-        // valida antes de salvar
-        if (usuarioExistente && usuarioExistente.email === email) {
-            const msg = document.getElementById("msgCadastro");
-            msg.textContent = "Email já cadastrado!";
-            msg.classList.remove("hidden"); // 👈 MOSTRA AQUI
-            return;
-        }
-
-        const usuario = { nome, email, senha, tipo };
-        localStorage.setItem("usuario", JSON.stringify(usuario));
-
-        const msg = document.getElementById("msgCadastro");
-        msg.textContent = "Cadastro realizado com sucesso!";
-        msg.classList.remove("hidden"); // 👈 MOSTRA AQUI
-
-        setTimeout(() => {
-            window.location.href = "login.html";
-        }, 1500);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
-
-    if (usuario) {
-        const nome = document.getElementById("nome");
-        const email = document.getElementById("email");
-
-        if (nome && email) {
-            nome.value = usuario.nome;
-            email.value = usuario.email;
-
-            nome.disabled = true;
-            email.disabled = true;
-        }
-    }
-
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const params = new URLSearchParams(window.location.search);
-    const atividade = params.get("atividade");
-
-    if (atividade) {
-        const checkboxes = document.querySelectorAll('input[name="atividade"]');
-
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.value === atividade) {
-                checkbox.checked = true;
-            }
+            const isOpen = hamburger.classList.contains("active");
+            hamburger.setAttribute("aria-expanded", isOpen);
         });
 
-        // mostrar mensagem
-        const info = document.getElementById("atividadeSelecionada");
-        if (info) {
-            info.textContent = "Atividade selecionada automaticamente.";
+        // Fechar menu ao clicar em link
+        const links = document.querySelectorAll(".navbar ul");
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+                hamburger.setAttribute("aria-expanded", false);
+            });
+        });
+    }
+
+
+    /* CADASTRO */
+    const formCadastro = document.getElementById("formCadastro");
+
+    if (formCadastro) {
+        formCadastro.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nome = document.getElementById("nomeCadastro").value;
+            const email = document.getElementById("emailCadastro").value;
+            const senha = document.getElementById("senhaCadastro").value;
+            const tipo = document.getElementById("tipoCadastro").value;
+            const msg = document.getElementById("msgCadastro");
+
+            const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
+
+            if (usuarioExistente && usuarioExistente.email === email) {
+                msg.textContent = "Email já cadastrado!";
+                msg.style.color = "red";
+                return;
+            }
+
+            const usuario = { nome, email, senha, tipo };
+            localStorage.setItem("usuario", JSON.stringify(usuario));
+
+            msg.textContent = "Cadastro realizado com sucesso!";
+            msg.style.color = "green";
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+        });
+    }
+
+
+    /* LOGIN */
+    const formLogin = document.getElementById("formLogin");
+
+    if (formLogin) {
+        formLogin.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const msgErro = document.getElementById("mensagemErro");
+
+            const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+
+            if (!usuarioSalvo) {
+                msgErro.textContent = "Usuário não encontrado!";
+                return;
+            }
+
+            if (email === usuarioSalvo.email && senha === usuarioSalvo.senha) {
+
+                localStorage.setItem("tipoUsuario", usuarioSalvo.tipo);
+                localStorage.setItem("nomeUsuario", usuarioSalvo.nome);
+
+                if (usuarioSalvo.tipo === "admin") {
+                    window.location.href = "admin.html";
+                } else {
+                    window.location.href = "participante.html";
+                }
+
+            } else {
+                msgErro.textContent = "Email ou senha inválidos!";
+            }
+        });
+    }
+
+
+    /* PROTEÇÃO DE PÁGINA PARTICIPANTE */
+    const paginaParticipante = document.querySelector(".participante");
+
+    if (paginaParticipante) {
+        const tipo = localStorage.getItem("tipoUsuario");
+
+        if (tipo !== "participante") {
+            window.location.href = "login.html";
+        }
+
+        const nome = localStorage.getItem("nomeUsuario");
+        const nomeExibicao = document.getElementById("nome-exibicao");
+
+        if (nomeExibicao && nome) {
+            nomeExibicao.textContent = nome;
         }
     }
 
+
+    /* LOGOUT */
+    const btnLogout = document.getElementById("btn-logout");
+    const logoutItem = document.getElementById("logout-item");
+
+    const tipoUsuario = localStorage.getItem("tipoUsuario");
+
+    if (tipoUsuario && logoutItem) {
+        logoutItem.hidden = false;
+    }
+
+    if (btnLogout) {
+        btnLogout.addEventListener("click", () => {
+            localStorage.removeItem("tipoUsuario");
+            localStorage.removeItem("nomeUsuario");
+
+            window.location.href = "index.html";
+        });
+    }
+
+
+    /* INSCRIÇÃO (PEGA ATIVIDADE DA URL) */
+    const atividadeInfo = document.getElementById("atividadeSelecionada");
+
+    if (atividadeInfo) {
+        const params = new URLSearchParams(window.location.search);
+        const atividade = params.get("atividade");
+
+        if (atividade) {
+            atividadeInfo.classList.remove("hidden");
+            atividadeInfo.textContent = "Atividade selecionada: " + atividade;
+        }
+    }
+
+
+    /* PREENCHER DADOS AUTOMÁTICOS */
+    const inputNome = document.getElementById("nome");
+    const inputEmail = document.getElementById("email");
+
+    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+
+    if (usuarioSalvo) {
+        if (inputNome) inputNome.value = usuarioSalvo.nome;
+        if (inputEmail) inputEmail.value = usuarioSalvo.email;
+    }
+
+
+    /* CONFIRMAÇÃO INSCRIÇÃO */
+    const formInscricao = document.getElementById("formInscricao");
+
+    if (formInscricao) {
+        formInscricao.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const msg = document.getElementById("msgInscricao");
+
+            msg.textContent = "Inscrição realizada com sucesso!";
+            msg.style.color = "green";
+        });
+    }
+
 });
-
-// salvar inscrição
-
-
