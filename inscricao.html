@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação</title>
+    <title>Inscrição</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
     <header>
-        <img src="" alt="logo">
-        <nav>
+        <nav class="navbar">
+            <img src="img/logo.png" alt="Logotipo do EventoTech">
+
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <ul>
                 <li>
                     <a href="index.html">
@@ -33,9 +40,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="participante.html">
+                    <a href="login.html">
                         <span class="material-symbols-outlined">person</span>
                         <span>Área do Participante</span>
+                    </a>
+                </li>
+                <li id="logout-item" hidden>
+                    <a href="#" id="btn-logout">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span>Logout</span>
                     </a>
                 </li>
             </ul>
@@ -65,29 +78,16 @@
             <input type="tel" id="telefone" required>
 
             <!-- ATIVIDADES -->
-            <h2>Escolha as atividades</h2>
+            <h2>Escolha a atividade</h2>
 
-            <label>
-                <input type="checkbox" name="atividade" value="ia"> Inteligência Artificial e o Futuro da Computação
-            </label>
-
-            <label>
-                <input type="checkbox" name="atividade" value="web"> Desenvolvimento Web Moderno com React
-            </label>
-
-            <label>
-                <input type="checkbox" name="atividade" value="seguranca"> Segurança Cibernética na Era Digital
-            </label>
-            <label>
-                <input type="checkbox" name="atividade" value="cloud"> Cloud Computing e Infraestrutura Escalável
-            </label>
-            <label>
-                <input type="checkbox" name="atividade" value="dados"> Data Science e Big Data Analytics
-            </label>
-            <label>
-                <input type="checkbox" name="atividade" value="devops"> DevOps e Metodologias Ágeis
-            </label>
-
+            <select name="atividade" class="atividade">
+                <option value="ia">Inteligência Artificial e o Futuro da Computação</option>
+                <option value="web">Desenvolvimento Web Moderno com React</option>
+                <option value="seguranca">Segurança Cibernética na Era Digital</option>
+                <option value="cloud">Cloud Computing e Infraestrutura Escalável</option>
+                <option value="dados">Data Science e Big Data Analytics</option>
+                <option value="devops">DevOps e Metodologias Ágeis</option>
+            </select>
 
             <!-- ACESSIBILIDADE -->
             <h2>Acessibilidade</h2>

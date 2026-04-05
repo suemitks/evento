@@ -11,8 +11,15 @@
 
 <body>
     <header>
-        <img src="" alt="logo">
-        <nav>
+        <nav class="navbar">
+            <img src="img/logo.png" alt="Logotipo do EventoTech">
+
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <ul>
                 <li>
                     <a href="index.html">
@@ -33,18 +40,99 @@
                     </a>
                 </li>
                 <li>
-                    <a href="participante.html">
+                    <a href="login.html">
                         <span class="material-symbols-outlined">person</span>
                         <span>Área do Participante</span>
+                    </a>
+                </li>
+                <li id="logout-item" hidden>
+                    <a href="#" id="btn-logout">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span>Logout</span>
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="banner">
+        <div class="atividades-container">
+            <section class="participante">
+                <span class="material-symbols-outlined">account_circle</span>
+                <h2>Bem-vindo, <span id="nome-exibicao"></span></h2>
+            </section>
 
-        </section>
+            <section class="lista-atividade">
+                <div class="minhas-incricoes">
+                    <span class="material-symbols-outlined">confirmation_number</span>
+                    <div class="detalhes">
+                        <h3>Minhas Inscrições</h3>
+                        <p>Eventos e palestras concluídos</p>
+                    </div>
+                </div>
+
+                <div class="atividade-card">
+                    <div class="atividade-info">
+                        <div class="atividade-data">15/04/2026</div>
+                        <div class="atividade-titulo">Inteligência Artificial e o Futuro da Computação</div>
+                        <div class="atividade-nome">
+                            <span>Palestra • 2 horas</span>
+                        </div>
+                        <div class="atividade-nome">
+                            <span class="material-symbols-outlined">person</span>
+                            Dr. Carlos Silva
+                        </div>
+                    </div>
+                    <div class="atividade-acoes">
+                        <span class="concluido">Confirmado</span>
+                    </div>
+                </div>
+
+                <div class="atividade-card">
+                    <div class="atividade-info">
+                        <div class="atividade-data">16/04/2026</div>
+                        <div class="atividade-titulo">Desenvolvimento Web Moderno com React</div>
+                        <div class="atividade-nome">
+                            <span>Palestra • 2 horas</span>
+                        </div>
+                        <div class="atividade-nome">
+                            <span class="material-symbols-outlined">person</span>
+                            Profa. Ana Santos
+                        </div>
+                    </div>
+                    <div class="atividade-acoes">
+                        <span class="concluido">Confirmado</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lista-atividade">
+                <div class="minhas-incricoes">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <h3>Minhas Atividades</h3>
+                </div>
+                <div class="atividade-card">
+                    <div class="atividade-info">
+                        <div class="atividade-data">16/03/2026</div>
+                        <div class="atividade-titulo">Workshop de React Avançado</div>
+                        <div class="atividade-nome">
+                            <span>Palestra • 2 horas</span>
+                        </div>
+                        <div class="atividade-nome">
+                            <span class="material-symbols-outlined">person</span>
+                            Profa. Ana Santos
+                        </div>
+                    </div>
+                    <div class="atividade-acoes">
+                        <span class="concluido">Concluído</span>
+                        <button class="btn-certificado">
+                            <span class="material-symbols-outlined">download</span>
+                            Baixar Certificado
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -81,7 +169,8 @@
     </footer>
 </body>
 
-<script src="js/script.js">
+<script src="js/script.js"></script>
+<script>
     const tipo = localStorage.getItem("tipoUsuario");
 
     if (tipo !== "participante") {
